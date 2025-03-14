@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Background -->
+  <rect width="200" height="200" rx="20" fill="#FFEBEE"/>
+  
+  <!-- Camera Viewfinder -->
+  <rect x="20" y="40" width="160" height="120" rx="5" fill="#ECEFF1" stroke="#607D8B" stroke-width="2"/>
+  
+  <!-- Detection Boxes -->
+  <rect x="40" y="60" width="60" height="40" rx="2" fill="none" stroke="#F44336" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="45" y="57" font-family="sans-serif" font-size="10" fill="#F44336">Person 98%</text>
+  
+  <rect x="120" y="90" width="30" height="30" rx="2" fill="none" stroke="#2196F3" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="120" y="87" font-family="sans-serif" font-size="10" fill="#2196F3">Cup 92%</text>
+  
+  <rect x="70" y="110" width="80" height="30" rx="2" fill="none" stroke="#4CAF50" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="70" y="107" font-family="sans-serif" font-size="10" fill="#4CAF50">Laptop 99%</text>
+  
+  <!-- YOLO Logo -->
+  <circle cx="160" cy="170" r="20" fill="#FFC107"/>
+  <text x="160" y="175" font-family="sans-serif" font-weight="bold" font-size="12" text-anchor="middle" fill="#212121">YOLO</text>
+  <text x="160" y="185" font-family="sans-serif" font-weight="bold" font-size="8" text-anchor="middle" fill="#212121">v8</text>
+  
+  <!-- Tracking Lines -->
+  <line x1="70" y1="60" x2="90" y2="40" stroke="#F44336" stroke-width="1" stroke-dasharray="2,2"/>
+  <line x1="135" y1="90" x2="155" y2="70" stroke="#2196F3" stroke-width="1" stroke-dasharray="2,2"/>
+  <line x1="110" y1="110" x2="130" y2="130" stroke="#4CAF50" stroke-width="1" stroke-dasharray="2,2"/>
+  
+  <!-- Instance Segmentation -->
+  <path d="M60,80 C65,75 75,75 80,80 C85,85 85,95 80,100 C75,105 65,105 60,100 C55,95 55,85 60,80 Z" fill="#F44336" fill-opacity="0.3" stroke="#F44336" stroke-width="1"/>
+  
+  <path d="M135,105 C138,102 142,102 145,105 C148,108 148,112 145,115 C142,118 138,118 135,115 C132,112 132,108 135,105 Z" fill="#2196F3" fill-opacity="0.3" stroke="#2196F3" stroke-width="1"/>
+</svg>

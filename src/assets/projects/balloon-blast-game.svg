@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Background -->
+  <rect width="200" height="200" rx="20" fill="#E3F2FD"/>
+  
+  <!-- Balloons -->
+  <path d="M50,70 C50,45 30,45 30,70 C30,85 45,100 50,105 C55,100 70,85 70,70 C70,45 50,45 50,70 Z" fill="#FF4081" stroke="#C2185B" stroke-width="2"/>
+  <line x1="50" y1="105" x2="50" y2="125" stroke="#C2185B" stroke-width="2"/>
+  
+  <path d="M100,50 C100,25 80,25 80,50 C80,65 95,80 100,85 C105,80 120,65 120,50 C120,25 100,25 100,50 Z" fill="#2196F3" stroke="#0D47A1" stroke-width="2"/>
+  <line x1="100" y1="85" x2="100" y2="105" stroke="#0D47A1" stroke-width="2"/>
+  
+  <path d="M150,60 C150,35 130,35 130,60, C130,75 145,90 150,95 C155,90 170,75 170,60 C170,35 150,35 150,60 Z" fill="#8BC34A" stroke="#558B2F" stroke-width="2"/>
+  <line x1="150" y1="95" x2="150" y2="115" stroke="#558B2F" stroke-width="2"/>
+  
+  <!-- Hand -->
+  <path d="M75,150 C70,140 70,130 75,125 L85,115 C90,110 95,110 100,115 L105,120 L115,110 C120,105 125,105 130,110 L135,115 L145,105 C150,100 155,100 160,105 L165,110 C180,125 175,140 160,155 L130,170 C120,175 95,175 85,170 Z" fill="#FFECB3" stroke="#FFA000" stroke-width="2"/>
+  
+  <!-- Fingers -->
+  <path d="M80,125 L60,105" stroke="#FFA000" stroke-width="2" fill="none"/>
+  <path d="M105,120 L85,90" stroke="#FFA000" stroke-width="2" fill="none"/>
+  <path d="M135,115 L115,85" stroke="#FFA000" stroke-width="2" fill="none"/>
+  <path d="M165,110 L145,80" stroke="#FFA000" stroke-width="2" fill="none"/>
+  
+  <!-- Burst Effect -->
+  <circle cx="175" cy="40" r="15" fill="#FFEB3B" opacity="0.7"/>
+  <path d="M170,35 L180,45 M180,35 L170,45" stroke="#FFC107" stroke-width="2"/>
+  <path d="M175,30 L175,50 M165,40 L185,40" stroke="#FFC107" stroke-width="2"/>
+</svg>
