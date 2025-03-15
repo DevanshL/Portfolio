@@ -10,8 +10,30 @@ const Experience = () => {
   const cursorYSpring = useSpring(cursorY, springConfig);
   
   const [isPointer, setIsPointer] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
   
   useEffect(() => {
+    // Check if device is desktop (not mobile)
+    const checkDevice = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
+    
+    // Initial check
+    checkDevice();
+    
+    // Listen for resize events
+    window.addEventListener('resize', checkDevice);
+    
+    // Cleanup
+    return () => {
+      window.removeEventListener('resize', checkDevice);
+    };
+  }, []);
+  
+  useEffect(() => {
+    // Only add cursor events if on desktop
+    if (!isDesktop) return;
+    
     const moveCursor = (e) => {
       cursorX.set(e.clientX - 5);
       cursorY.set(e.clientY - 5);
@@ -32,59 +54,63 @@ const Experience = () => {
       window.removeEventListener('mousemove', moveCursor);
       window.removeEventListener('mousemove', checkPointer);
     };
-  }, [cursorX, cursorY]);
+  }, [cursorX, cursorY, isDesktop]);
 
   return (
     <>
-      {/* Custom cursor elements */}
-      <motion.div
-        className="fixed top-0 left-0 w-4 h-4 bg-blue-500 rounded-full z-50 pointer-events-none"
-        style={{
-          x: cursorXSpring,
-          y: cursorYSpring,
-        }}
-      />
-      <motion.div
-        className="fixed top-0 left-0 w-12 h-12 border-2 border-blue-400 rounded-full z-40 pointer-events-none mix-blend-difference"
-        style={{
-          x: cursorXSpring,
-          y: cursorYSpring,
-          scale: isPointer ? 0.8 : 1,
-          opacity: 0.5
-        }}
-      />
-      <motion.div
-        className="fixed top-0 left-0 z-30 pointer-events-none"
-        style={{
-          x: cursorX,
-          y: cursorY,
-        }}
-      >
-        <svg width="60" height="60" viewBox="0 0 60 60">
-          <motion.path
-            d="M0,30 C20,30 30,0 30,0 C30,0 40,30 60,30 C40,30 30,60 30,60 C30,60 20,30 0,30"
-            fill="none"
-            stroke="rgba(59, 130, 246, 0.5)"
-            strokeWidth="2"
-            animate={{ 
-              rotate: [0, 90, 180, 270, 360],
-              scale: [1, 1.1, 1],
-            }}
-            transition={{ 
-              duration: 5, 
-              repeat: Infinity,
-              repeatType: "loop" 
+      {/* Custom cursor elements - only shown on desktop */}
+      {isDesktop && (
+        <>
+          <motion.div
+            className="fixed top-0 left-0 w-4 h-4 bg-blue-500 rounded-full z-50 pointer-events-none"
+            style={{
+              x: cursorXSpring,
+              y: cursorYSpring,
             }}
           />
-        </svg>
-      </motion.div>
-      
-      {/* Hide default cursor */}
-      <style jsx global>{`
-        * {
-          cursor: none !important;
-        }
-      `}</style>
+          <motion.div
+            className="fixed top-0 left-0 w-12 h-12 border-2 border-blue-400 rounded-full z-40 pointer-events-none mix-blend-difference"
+            style={{
+              x: cursorXSpring,
+              y: cursorYSpring,
+              scale: isPointer ? 0.8 : 1,
+              opacity: 0.5
+            }}
+          />
+          <motion.div
+            className="fixed top-0 left-0 z-30 pointer-events-none"
+            style={{
+              x: cursorX,
+              y: cursorY,
+            }}
+          >
+            <svg width="60" height="60" viewBox="0 0 60 60">
+              <motion.path
+                d="M0,30 C20,30 30,0 30,0 C30,0 40,30 60,30 C40,30 30,60 30,60 C30,60 20,30 0,30"
+                fill="none"
+                stroke="rgba(59, 130, 246, 0.5)"
+                strokeWidth="2"
+                animate={{ 
+                  rotate: [0, 90, 180, 270, 360],
+                  scale: [1, 1.1, 1],
+                }}
+                transition={{ 
+                  duration: 5, 
+                  repeat: Infinity,
+                  repeatType: "loop" 
+                }}
+              />
+            </svg>
+          </motion.div>
+          
+          {/* Hide default cursor only on desktop */}
+          <style jsx global>{`
+            * {
+              cursor: none !important;
+            }
+          `}</style>
+        </>
+      )}
       
       <div className='border-b border-neutral-900 pb-16 md:pb-24'>
         <motion.h1 
@@ -192,7 +218,6 @@ const Experience = () => {
         </div>
       </div>
     </>
-    
   );
 };
 
